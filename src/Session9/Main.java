@@ -1,10 +1,46 @@
 package Session9;
 
 import java.time.*;
+import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String args[]){
+//        UInterface ui = new UInterface() {
+//            @Override
+//            public void running() {
+//                System.out.println("hahah running..");
+//            }
+//        };
+//        ui.running();
+
+        UInterface ui2 = (int a, int b)->{
+            System.out.println("ui 2 running...");
+        };
+
+        ui2.running(1,2);
+
+        X x = new X();
+        x.a().b().c();
+
+        ArrayList<String> strArr = new ArrayList<>();
+        strArr.add("hello");
+        strArr.add("abc");
+        strArr.add("aaa");
+        strArr.add("ccc");
+        strArr.add("bbb");
+
+        strArr.stream().filter(s -> s.startsWith("a"))
+                .map(s -> {s= s.toUpperCase();return  s;})
+                .sorted()
+                .forEach(s->System.out.println(s));
+
+        for (String s:strArr){
+            System.out.println(s);
+        }
+
+    }
+    public static void main2(String args[]){
 
         LocalDate date1 = LocalDate.now();
 
@@ -36,6 +72,21 @@ public class Main {
 
         ZonedDateTime zoned = ZonedDateTime.now();
         System.out.println(zoned);
+
+        String str = "1901-02-28";
+        LocalDate c20 = LocalDate.parse(str);
+        LocalDate next_c20 = c20.plusDays(1);
+        while (next_c20.getDayOfMonth() != 29){
+            c20 = c20.plusYears(1);
+            next_c20 = c20.plusDays(1);
+        }
+
+        int year = c20.getYear();
+
+        for (int i = year;i<=2000;i+=4){
+            System.out.println(i);
+        }
+
     }
 
 }
