@@ -3,15 +3,18 @@ package JV2_Session3;
 public class Main {
     public static void main(String args[]){
         SubThread s1 = new SubThread();
-        s1.setName("thread abc");
-        System.out.println(s1.getName());
+//        s1.setName("thread abc");
+//        System.out.println(s1.getName());
         s1.start();
+        try {
+            s1.join();
+        }catch (Exception e){}
 
         String x = "aaaa";
 
         MyThread m1 = new MyThread();
         Thread thread =  new Thread(m1);
-        thread.setDaemon(true);
+       // thread.setDaemon(true);
         thread.start();
 
         Runnable r1 = new Runnable() {
