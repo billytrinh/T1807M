@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String args[]){
         try {
-            Connector connector = new Connector();
+            Connector connector = Connector.getInstance();
             boolean start =  true;
             Scanner scanner = new Scanner(System.in);
             while (start){

@@ -6,7 +6,9 @@ public class Connector {
 
     public Connection conn;
 
-    public Connector(){
+    public static Connector instance;
+
+    private Connector(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String URL = "jdbc:mysql://localhost:8889/t1807m";
@@ -14,6 +16,13 @@ public class Connector {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public static Connector getInstance(){
+        if(instance == null){
+            instance = new Connector();
+        }
+        return  instance;
     }
 
     public ResultSet getQuery(String sql) throws Exception{
